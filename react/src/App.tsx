@@ -1,10 +1,13 @@
-import Alert from "./components/Alert";
+import { Children } from "react";
+import Button from "./components/Button";
+
+const handleClick = () => {
+  console.log("clicked");
+};
 function App() {
   return (
     <div>
-      <Alert>
-        Hello <span>World</span>
-      </Alert>
+      <Button color="secondary" onClick={handleClick}>Button</Button>
     </div>
   );
 }
