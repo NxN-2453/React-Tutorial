@@ -1,13 +1,25 @@
-import { Children } from "react";
+import { Children, useState } from "react";
 import Button from "./components/Button";
+import DismissableAlert from "./components/Dismissable Alert";
 
 const handleClick = () => {
-  console.log("clicked");
+  // SetDismissableAlertVisible(true);
 };
 function App() {
+  const [DismissableAlertVisible, SetDismissableAlertVisible] = useState(false);
   return (
     <div>
-      <Button color="secondary" onClick={handleClick}>Button</Button>
+      {DismissableAlertVisible && (
+        <DismissableAlert onClose={() => SetDismissableAlertVisible(false)}>
+          Alert
+        </DismissableAlert>
+      )}
+      <Button
+        color="secondary"
+        onClick={() => SetDismissableAlertVisible(true)}
+      >
+        Button
+      </Button>
     </div>
   );
 }
