@@ -48,8 +48,10 @@ function App() {
     ]);
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    next();
+    if (!isLastStep) return next();
+    alert("Success!");
   }
+
   return (
     <div
       style={{
@@ -60,6 +62,7 @@ function App() {
         margin: "1rem",
         borderRadius: ".5rem",
         fontFamily: "comics sans ms",
+        maxWidth: "max-content",
       }}
     >
       <form onSubmit={onSubmit}>
