@@ -1,33 +1,25 @@
-import Message from "./Message";
-import ListGroup from "./components/ListGroup";
+import { Children, useState } from "react";
+import Button from "./components/Button";
+import DismissableAlert from "./components/Dismissable Alert";
 
-// function App(){
-//     const name = "John";
-//     if (name === "John") {
-//         return <h1>Hello {name}</h1>;
-//     }
-//     return <h1>Hello World</h1>;
-// }
-
+const handleClick = () => {
+  // SetDismissableAlertVisible(true);
+};
 function App() {
-  let items = [
-    "An item",
-    "A second item",
-    "A third item",
-    "A fourth item",
-    "And a fifth one",
-  ];
-
-  const handleSelectItem = (item: string) => {
-    console.log(item);
-  };
+  const [DismissableAlertVisible, SetDismissableAlertVisible] = useState(false);
   return (
     <div>
-      <ListGroup
-        items={items}
-        heading="Items"
-        onSelectItem={handleSelectItem}
-      />
+      {DismissableAlertVisible && (
+        <DismissableAlert onClose={() => SetDismissableAlertVisible(false)}>
+          Alert
+        </DismissableAlert>
+      )}
+      <Button
+        color="secondary"
+        onClick={() => SetDismissableAlertVisible(true)}
+      >
+        Button
+      </Button>
     </div>
   );
 }
